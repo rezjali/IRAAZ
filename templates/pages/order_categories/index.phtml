@@ -1,0 +1,30 @@
+<div class="bg-white p-6 rounded-xl shadow-md">
+    <div class="flex justify-between items-center mb-4">
+        <h2 class="text-xl font-semibold"><?= e($title); ?></h2>
+        <a href="<?= APP_URL; ?>/order-categories/create" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">ایجاد دسته‌بندی</a>
+    </div>
+    <table class="w-full text-sm text-right text-gray-500">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+            <tr>
+                <th scope="col" class="py-3 px-6">#</th>
+                <th scope="col" class="py-3 px-6">نام دسته‌بندی</th>
+                <th scope="col" class="py-3 px-6">عملیات</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($categories as $category): ?>
+            <tr class="bg-white border-b hover:bg-gray-50">
+                <td class="py-4 px-6"><?= e($category->id); ?></td>
+                <td class="py-4 px-6 font-medium"><?= e($category->name); ?></td>
+                <td class="py-4 px-6 flex space-x-2 space-x-reverse">
+                    <a href="<?= APP_URL; ?>/order-categories/edit?id=<?= e($category->id); ?>" class="text-yellow-500 hover:underline">ویرایش</a>
+                    <form action="<?= APP_URL; ?>/order-categories/destroy" method="POST" onsubmit="return confirm('آیا مطمئن هستید؟');">
+                        <input type="hidden" name="id" value="<?= e($category->id); ?>">
+                        <button type="submit" class="text-red-500 hover:underline">حذف</button>
+                    </form>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
