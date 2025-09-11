@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Sep 11, 2025 at 12:16 PM
+-- Generation Time: Sep 11, 2025 at 05:25 PM
 -- Server version: 10.11.10-MariaDB
 -- PHP Version: 8.3.14
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `admin_nilayteamirnaaz`
+-- Database: `admin_nilayteamirnaaz2`
 --
 
 -- --------------------------------------------------------
@@ -4068,7 +4068,122 @@ INSERT INTO `visitor_logs` (`id`, `user_id`, `ip_address`, `user_agent`, `reques
 (3314, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/admins', '2025-09-11 12:14:39'),
 (3315, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/', '2025-09-11 12:14:40'),
 (3316, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/orders?status_id=1', '2025-09-11 12:15:50'),
-(3317, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/settings/sms', '2025-09-11 12:15:56');
+(3317, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/settings/sms', '2025-09-11 12:15:56'),
+(3318, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/', '2025-09-11 12:21:02'),
+(3319, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/orders', '2025-09-11 12:21:10'),
+(3320, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/orders/show?id=1', '2025-09-11 12:21:13'),
+(3321, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/orders', '2025-09-11 12:21:16'),
+(3322, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/orders/edit?id=1', '2025-09-11 12:21:18'),
+(3323, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/orders', '2025-09-11 12:21:21'),
+(3324, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/orders/show?id=1', '2025-09-11 12:21:23'),
+(3325, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/orders', '2025-09-11 12:21:42'),
+(3326, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/orders/edit?id=1', '2025-09-11 12:23:24'),
+(3327, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/admins', '2025-09-11 12:27:41'),
+(3328, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/settings', '2025-09-11 12:27:44'),
+(3329, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/settings/sms', '2025-09-11 12:27:48'),
+(3330, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/constants/order-statuses', '2025-09-11 12:27:50'),
+(3331, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/constants/ticket-categories', '2025-09-11 12:27:54'),
+(3332, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/constants/shipping-rates', '2025-09-11 12:27:56'),
+(3333, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/constants/sites', '2025-09-11 12:27:58'),
+(3334, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/constants/sites', '2025-09-11 12:47:29'),
+(3335, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/constants/shipping-rates', '2025-09-11 12:47:33'),
+(3336, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/settings', '2025-09-11 12:47:36'),
+(3337, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/constants/order-statuses', '2025-09-11 12:47:38'),
+(3338, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/settings/sms', '2025-09-11 12:47:39'),
+(3339, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/orders', '2025-09-11 12:47:44'),
+(3340, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/settings/sms', '2025-09-11 12:47:48'),
+(3341, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/orders?status_id=1', '2025-09-11 12:47:51'),
+(3342, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/settings/sms', '2025-09-11 12:47:52'),
+(3343, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/admins', '2025-09-11 12:47:55'),
+(3344, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/orders', '2025-09-11 12:48:07'),
+(3345, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/admins', '2025-09-11 12:48:09'),
+(3346, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/orders', '2025-09-11 12:48:33'),
+(3347, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/orders', '2025-09-11 12:51:18'),
+(3348, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/orders', '2025-09-11 12:51:41'),
+(3349, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/orders', '2025-09-11 12:55:36'),
+(3350, NULL, '43.165.135.242', 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1', '/irnaaz/', '2025-09-11 14:33:51'),
+(3351, NULL, '43.165.135.242', 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1', '/irnaaz/login', '2025-09-11 14:33:54'),
+(3352, NULL, '175.27.164.113', 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1', '/irnaaz/', '2025-09-11 14:50:52'),
+(3353, NULL, '175.27.164.113', 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1', '/irnaaz/login', '2025-09-11 14:50:53'),
+(3354, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/orders', '2025-09-11 15:29:44'),
+(3355, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/orders', '2025-09-11 15:30:39'),
+(3356, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/orders/show?id=1', '2025-09-11 15:30:46'),
+(3357, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/orders/edit?id=1', '2025-09-11 15:30:46'),
+(3358, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/orders/edit?id=1', '2025-09-11 15:30:52'),
+(3359, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/orders', '2025-09-11 15:33:50'),
+(3360, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/orders/create', '2025-09-11 15:34:39'),
+(3361, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/orders', '2025-09-11 15:34:41'),
+(3362, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/order-categories', '2025-09-11 15:34:42'),
+(3363, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/order-categories/edit?id=1', '2025-09-11 15:34:46'),
+(3364, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/order-categories', '2025-09-11 15:34:48'),
+(3365, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/order-categories/create', '2025-09-11 15:34:49'),
+(3366, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/order-categories/create', '2025-09-11 15:34:58'),
+(3367, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/order-categories/create', '2025-09-11 15:36:21'),
+(3368, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/settings', '2025-09-11 15:36:27'),
+(3369, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/constants/sites', '2025-09-11 15:37:12'),
+(3370, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/settings', '2025-09-11 15:37:14'),
+(3371, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/constants/shipping-rates', '2025-09-11 15:37:16'),
+(3372, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/settings', '2025-09-11 15:37:18'),
+(3373, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/constants/ticket-categories', '2025-09-11 15:37:22'),
+(3374, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/settings', '2025-09-11 15:37:23'),
+(3375, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/constants/order-statuses', '2025-09-11 15:37:25'),
+(3376, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/settings', '2025-09-11 15:37:27'),
+(3377, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/users', '2025-09-11 15:37:31'),
+(3378, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/roles', '2025-09-11 15:37:31'),
+(3379, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/admins', '2025-09-11 15:37:32'),
+(3380, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/users/edit?id=4', '2025-09-11 15:37:34'),
+(3381, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/admins/create', '2025-09-11 15:37:43'),
+(3382, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/tasks', '2025-09-11 15:37:47'),
+(3383, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/settings', '2025-09-11 15:37:49'),
+(3384, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/suitcases', '2025-09-11 15:37:51'),
+(3385, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/suitcases/create', '2025-09-11 15:37:54'),
+(3386, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/financial/debtors', '2025-09-11 15:37:58'),
+(3387, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/financial/sales-stats', '2025-09-11 15:38:01'),
+(3388, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/', '2025-09-11 15:38:23'),
+(3389, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/financial/sales-stats', '2025-09-11 15:38:25'),
+(3390, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/financial/sales-stats', '2025-09-11 15:39:34'),
+(3391, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz2/', '2025-09-11 15:45:01'),
+(3392, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz2/', '2025-09-11 15:45:09'),
+(3393, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz2/', '2025-09-11 15:45:21'),
+(3394, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz2/', '2025-09-11 15:45:54'),
+(3395, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz2/tasks', '2025-09-11 15:45:56'),
+(3396, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz2/suspended-orders', '2025-09-11 15:45:58'),
+(3397, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz2/', '2025-09-11 15:46:00'),
+(3398, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz2/admins', '2025-09-11 15:46:04'),
+(3399, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz2/settings', '2025-09-11 15:46:07'),
+(3400, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz2/settings', '2025-09-11 16:11:44'),
+(3401, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz2/settings/sms', '2025-09-11 16:12:06');
+INSERT INTO `visitor_logs` (`id`, `user_id`, `ip_address`, `user_agent`, `request_uri`, `timestamp`) VALUES
+(3402, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz2/admins', '2025-09-11 16:12:11'),
+(3403, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz2/settings', '2025-09-11 16:12:12'),
+(3404, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz2/settings', '2025-09-11 16:30:57'),
+(3405, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz2/settings', '2025-09-11 16:31:05'),
+(3406, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz2/settings/sms', '2025-09-11 16:31:09'),
+(3407, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz2/settings', '2025-09-11 16:31:12'),
+(3408, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz2/settings', '2025-09-11 16:46:59'),
+(3409, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz2/settings/sms', '2025-09-11 16:47:07'),
+(3410, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz2/settings', '2025-09-11 16:47:09'),
+(3411, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz2/settings', '2025-09-11 16:47:12'),
+(3412, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz2/settings', '2025-09-11 16:47:12'),
+(3413, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz2/settings', '2025-09-11 16:49:34'),
+(3414, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz2/settings/sms', '2025-09-11 16:49:39'),
+(3415, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz2/settings', '2025-09-11 16:51:28'),
+(3416, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz2/orders', '2025-09-11 16:51:39'),
+(3417, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz2/orders/show?id=1', '2025-09-11 16:51:42'),
+(3418, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz2/orders', '2025-09-11 16:51:47'),
+(3419, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz2/orders', '2025-09-11 17:08:09'),
+(3420, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz2/orders', '2025-09-11 17:08:43'),
+(3421, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz2/orders', '2025-09-11 17:13:11'),
+(3422, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz2/orders', '2025-09-11 17:13:26'),
+(3423, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz2/orders', '2025-09-11 17:15:48'),
+(3424, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz2/orders', '2025-09-11 17:16:18'),
+(3425, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz2/', '2025-09-11 17:16:21'),
+(3426, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz2/orders', '2025-09-11 17:17:54'),
+(3427, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz2/orders', '2025-09-11 17:17:57'),
+(3428, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz2/orders', '2025-09-11 17:18:08'),
+(3429, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz2/orders', '2025-09-11 17:21:38'),
+(3430, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz2/orders', '2025-09-11 17:21:50'),
+(3431, 1, '168.231.80.176', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz2/orders', '2025-09-11 17:24:04');
 
 --
 -- Indexes for dumped tables
@@ -4488,7 +4603,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `visitor_logs`
 --
 ALTER TABLE `visitor_logs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3318;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3432;
 
 --
 -- Constraints for dumped tables
