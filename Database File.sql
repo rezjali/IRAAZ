@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Sep 11, 2025 at 11:33 AM
+-- Generation Time: Sep 11, 2025 at 12:16 PM
 -- Server version: 10.11.10-MariaDB
 -- PHP Version: 8.3.14
 
@@ -472,6 +472,7 @@ CREATE TABLE `settings` (
 INSERT INTO `settings` (`setting_key`, `setting_value`) VALUES
 ('default_commission_rate', '10'),
 ('default_try_exchange_rate', '2000'),
+('lira_rate', '0'),
 ('login_bg_url', ''),
 ('order_allow_new', '1'),
 ('order_default_status_on_create', '1'),
@@ -4022,7 +4023,52 @@ INSERT INTO `visitor_logs` (`id`, `user_id`, `ip_address`, `user_agent`, `reques
 (3269, NULL, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/login', '2025-09-11 11:29:09'),
 (3270, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/', '2025-09-11 11:29:09'),
 (3271, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/orders', '2025-09-11 11:29:22'),
-(3272, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/orders/create', '2025-09-11 11:29:24');
+(3272, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/orders/create', '2025-09-11 11:29:24'),
+(3273, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/orders/create', '2025-09-11 11:50:02'),
+(3274, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/', '2025-09-11 11:50:07'),
+(3275, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/orders', '2025-09-11 11:50:10'),
+(3276, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/', '2025-09-11 11:50:12'),
+(3277, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/settings', '2025-09-11 11:50:18'),
+(3278, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/settings/sms', '2025-09-11 11:50:21'),
+(3279, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/settings', '2025-09-11 11:50:23'),
+(3280, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/constants/order-statuses', '2025-09-11 11:50:26'),
+(3281, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/settings', '2025-09-11 11:50:28'),
+(3282, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/constants/ticket-categories', '2025-09-11 11:50:29'),
+(3283, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/settings', '2025-09-11 11:50:31'),
+(3284, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/constants/shipping-rates', '2025-09-11 11:50:32'),
+(3285, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/constants/sites', '2025-09-11 11:50:37'),
+(3286, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/admins', '2025-09-11 11:50:40'),
+(3287, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/orders', '2025-09-11 11:50:59'),
+(3288, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/admins', '2025-09-11 11:51:08'),
+(3289, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/orders?status_id=2', '2025-09-11 11:51:13'),
+(3290, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/admins', '2025-09-11 11:51:15'),
+(3291, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/settings/sms', '2025-09-11 11:51:32'),
+(3292, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/admins', '2025-09-11 11:51:37'),
+(3293, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/settings/sms', '2025-09-11 11:54:27'),
+(3294, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/admins', '2025-09-11 11:54:29'),
+(3295, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/admins', '2025-09-11 11:54:32'),
+(3296, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/settings/sms', '2025-09-11 11:54:35'),
+(3297, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/orders', '2025-09-11 11:54:40'),
+(3298, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/orders/show?id=1', '2025-09-11 11:54:45'),
+(3299, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/orders', '2025-09-11 11:54:47'),
+(3300, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/admins', '2025-09-11 11:56:24'),
+(3301, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/orders', '2025-09-11 11:56:26'),
+(3302, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/orders/show?id=1', '2025-09-11 11:56:40'),
+(3303, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/orders/edit?id=1', '2025-09-11 11:56:44'),
+(3304, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/orders?status_id=1', '2025-09-11 11:57:00'),
+(3305, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/settings/sms', '2025-09-11 11:57:10'),
+(3306, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/admins', '2025-09-11 11:57:27'),
+(3307, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/settings', '2025-09-11 11:57:27'),
+(3308, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/constants/order-statuses', '2025-09-11 11:57:28'),
+(3309, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/constants/ticket-categories', '2025-09-11 11:57:29'),
+(3310, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/constants/shipping-rates', '2025-09-11 11:57:30'),
+(3311, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/constants/sites', '2025-09-11 11:57:31'),
+(3312, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/constants/order-statuses', '2025-09-11 12:04:41'),
+(3313, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/constants/order-statuses', '2025-09-11 12:14:36'),
+(3314, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/admins', '2025-09-11 12:14:39'),
+(3315, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/', '2025-09-11 12:14:40'),
+(3316, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/orders?status_id=1', '2025-09-11 12:15:50'),
+(3317, 1, '82.25.101.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '/irnaaz/settings/sms', '2025-09-11 12:15:56');
 
 --
 -- Indexes for dumped tables
@@ -4442,7 +4488,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `visitor_logs`
 --
 ALTER TABLE `visitor_logs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3273;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3318;
 
 --
 -- Constraints for dumped tables
