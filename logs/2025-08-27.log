@@ -1,0 +1,4 @@
+[2025-08-27 09:13:32] [2] Undefined array key "HEAD" in /home/admin/domains/nilayteam.ir/public_html/irnaaz/app/core/Router.php on line 26
+[2025-08-27 09:13:32] [TypeError] array_key_exists(): Argument #2 ($array) must be of type array, null given in /home/admin/domains/nilayteam.ir/public_html/irnaaz/app/core/Router.php on line 26
+[2025-08-27 09:13:32] [2] Undefined array key "HEAD" in /home/admin/domains/nilayteam.ir/public_html/irnaaz/app/core/Router.php on line 26
+[2025-08-27 09:13:32] [TypeError] array_key_exists(): Argument #2 ($array) must be of type array, null given in /home/admin/domains/nilayteam.ir/public_html/irnaaz/app/core/Router.php on line 26
