@@ -47,8 +47,18 @@ class Order {
     public function getRecentOrders($limit = 5) { $this->db->query("SELECT o.id, u.full_name as customer_name, os.status_name, o.created_at FROM orders o JOIN users u ON o.user_id = u.id JOIN order_statuses os ON o.status_id = os.id ORDER BY o.created_at DESC LIMIT :limit"); $this->db->bind(':limit', $limit); return $this->db->fetchAll(); }
     
     public function createOrder($data) {
-        // <<< FIX: Added product_link to the INSERT statement
-        $sql = "INSERT INTO orders (user_id, status_id, title, image, source_site, quantity, size, price_lira, price_toman, weight, apply_shipping, with_cargo, is_store_purchase, category_id, description, product_link, total_cost) VALUES (:user_id, :status_id, :title, :image, :source_site, :quantity, :size, :price_lira, :price_toman, :weight, :apply_shipping, :with_cargo, :is_store_purchase, :category_id, :description, :product_link, :total_cost)";
+        // Extended: include selected rate ids and component costs
+        $sql = "INSERT INTO orders (
+            user_id, status_id, title, image, source_site, quantity, size, price_lira, price_toman, weight,
+            apply_shipping, with_cargo, is_store_purchase, category_id, description, product_link,
+            shipping_rate_id, cargo_rate_id, store_rate_id,
+            shipping_cost_toman, cargo_cost_toman, store_cost_toman, product_cost_toman, total_cost
+        ) VALUES (
+            :user_id, :status_id, :title, :image, :source_site, :quantity, :size, :price_lira, :price_toman, :weight,
+            :apply_shipping, :with_cargo, :is_store_purchase, :category_id, :description, :product_link,
+            :shipping_rate_id, :cargo_rate_id, :store_rate_id,
+            :shipping_cost_toman, :cargo_cost_toman, :store_cost_toman, :product_cost_toman, :total_cost
+        )";
         $this->db->query($sql);
         $this->db->bind(':user_id', $data['user_id']); 
         $this->db->bind(':status_id', $data['status_id']); 
@@ -65,8 +75,15 @@ class Order {
         $this->db->bind(':is_store_purchase', $data['is_store_purchase']); 
         $this->db->bind(':category_id', $data['category_id']); 
         $this->db->bind(':description', $data['description']); 
-        $this->db->bind(':product_link', $data['product_link']); // This binding is now correct
-        $this->db->bind(':total_cost', $data['price_toman']);
+        $this->db->bind(':product_link', $data['product_link']);
+        $this->db->bind(':shipping_rate_id', $data['shipping_rate_id']);
+        $this->db->bind(':cargo_rate_id', $data['cargo_rate_id']);
+        $this->db->bind(':store_rate_id', $data['store_rate_id']);
+        $this->db->bind(':shipping_cost_toman', $data['shipping_cost_toman']);
+        $this->db->bind(':cargo_cost_toman', $data['cargo_cost_toman']);
+        $this->db->bind(':store_cost_toman', $data['store_cost_toman']);
+        $this->db->bind(':product_cost_toman', $data['product_cost_toman']);
+        $this->db->bind(':total_cost', $data['total_cost']);
         if ($this->db->execute()) { return $this->db->lastInsertId(); } return false;
     }
     
@@ -76,8 +93,14 @@ class Order {
     }
     
     public function updateOrder($id, $data) {
-        // <<< FIX: Ensured product_link is in the UPDATE statement
-        $sql = "UPDATE orders SET user_id = :user_id, title = :title, image = :image, source_site = :source_site, quantity = :quantity, size = :size, price_lira = :price_lira, price_toman = :price_toman, weight = :weight, apply_shipping = :apply_shipping, with_cargo = :with_cargo, is_store_purchase = :is_store_purchase, category_id = :category_id, description = :description, product_link = :product_link, total_cost = :total_cost WHERE id = :id";
+        // Extended: include selected rate ids and component costs
+        $sql = "UPDATE orders SET 
+            user_id = :user_id, title = :title, image = :image, source_site = :source_site, quantity = :quantity, size = :size, price_lira = :price_lira, price_toman = :price_toman, weight = :weight,
+            apply_shipping = :apply_shipping, with_cargo = :with_cargo, is_store_purchase = :is_store_purchase, category_id = :category_id, description = :description, product_link = :product_link,
+            shipping_rate_id = :shipping_rate_id, cargo_rate_id = :cargo_rate_id, store_rate_id = :store_rate_id,
+            shipping_cost_toman = :shipping_cost_toman, cargo_cost_toman = :cargo_cost_toman, store_cost_toman = :store_cost_toman, product_cost_toman = :product_cost_toman,
+            total_cost = :total_cost 
+        WHERE id = :id";
         $this->db->query($sql);
         $this->db->bind(':id', $id); 
         $this->db->bind(':user_id', $data['user_id']); 
@@ -94,7 +117,14 @@ class Order {
         $this->db->bind(':is_store_purchase', $data['is_store_purchase']); 
         $this->db->bind(':category_id', $data['category_id']); 
         $this->db->bind(':description', $data['description']);
-        $this->db->bind(':product_link', $data['product_link']); // This binding is now correct
+        $this->db->bind(':product_link', $data['product_link']);
+        $this->db->bind(':shipping_rate_id', $data['shipping_rate_id']);
+        $this->db->bind(':cargo_rate_id', $data['cargo_rate_id']);
+        $this->db->bind(':store_rate_id', $data['store_rate_id']);
+        $this->db->bind(':shipping_cost_toman', $data['shipping_cost_toman']);
+        $this->db->bind(':cargo_cost_toman', $data['cargo_cost_toman']);
+        $this->db->bind(':store_cost_toman', $data['store_cost_toman']);
+        $this->db->bind(':product_cost_toman', $data['product_cost_toman']);
         $this->db->bind(':total_cost', $data['total_cost']);
         return $this->db->execute();
     }

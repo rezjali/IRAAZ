@@ -133,7 +133,7 @@ $router->get('/settings', [App\Controllers\SettingsController::class, 'index']);
 $router->get('/settings/orders', [App\Controllers\SettingsController::class, 'orderSettings']);
 $router->get('/settings/sms', [App\Controllers\SettingsController::class, 'smsSettings']);
 $router->get('/settings/tickets', [App\Controllers\SettingsController::class, 'ticketSettings']);
-$router->post('/settings/update', [App\Controllers\SettingsController::class, 'update']);
+$router->post('/settings/update', [App\Controllers\SettingsController::class, 'updateSiteAndBranding']);
 $router->get('/constants/order-statuses', [App\Controllers\ConstantController::class, 'orderStatuses']);
 $router->post('/constants/order-statuses/store', [App\Controllers\ConstantController::class, 'storeOrderStatus']);
 $router->post('/constants/order-statuses/delete', [App\Controllers\ConstantController::class, 'deleteOrderStatus']);
@@ -146,6 +146,12 @@ $router->post('/constants/sites/delete', [App\Controllers\ConstantController::cl
 $router->get('/constants/ticket-categories', [App\Controllers\ConstantController::class, 'ticketCategories']);
 $router->post('/constants/ticket-categories/store', [App\Controllers\ConstantController::class, 'storeTicketCategory']);
 $router->post('/constants/ticket-categories/delete', [App\Controllers\ConstantController::class, 'deleteTicketCategory']);
+
+// Rates Module
+$router->get('/rates', [App\Controllers\RateController::class, 'index']);
+$router->post('/rates/store', [App\Controllers\RateController::class, 'store']);
+$router->post('/rates/update', [App\Controllers\RateController::class, 'update']);
+$router->post('/rates/delete', [App\Controllers\RateController::class, 'delete']);
 
 // Dispatch the router
 try {

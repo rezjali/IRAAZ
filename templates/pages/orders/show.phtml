@@ -28,8 +28,26 @@
                     <span class="font-medium text-gray-800"><?= e($order->customer_name); ?></span>
                 </div>
                 <div class="flex justify-between border-b pb-2">
-                    <span class="text-gray-500">قیمت (تومان):</span>
+                    <span class="text-gray-500">قیمت محصول (تومان):</span>
                     <span class="font-medium text-green-600"><?= number_format($order->price_toman ?? 0); ?> تومان</span>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <div class="flex justify-between border-b pb-2">
+                        <span class="text-gray-500">هزینه باربری:</span>
+                        <span class="font-medium text-gray-800"><?= number_format($order->shipping_cost_toman ?? 0); ?> تومان</span>
+                    </div>
+                    <div class="flex justify-between border-b pb-2">
+                        <span class="text-gray-500">هزینه کارگو:</span>
+                        <span class="font-medium text-gray-800"><?= number_format($order->cargo_cost_toman ?? 0); ?> تومان</span>
+                    </div>
+                    <div class="flex justify-between border-b pb-2">
+                        <span class="text-gray-500">هزینه خرید استور:</span>
+                        <span class="font-medium text-gray-800"><?= number_format($order->store_cost_toman ?? 0); ?> تومان</span>
+                    </div>
+                </div>
+                <div class="flex justify-between border-b pb-2">
+                    <span class="text-gray-500">جمع کل:</span>
+                    <span class="font-bold text-green-700"><?= number_format($order->total_cost ?? ($order->price_toman ?? 0)); ?> تومان</span>
                 </div>
                 <div class="flex justify-between border-b pb-2">
                     <span class="text-gray-500">قیمت (لیر):</span>

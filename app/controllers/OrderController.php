@@ -52,13 +52,23 @@ class OrderController extends Controller {
     }
     
     public function create() {
-        $data = ['title' => 'ثبت سفارش جدید', 'customers' => $this->userModel->getAllCustomers(), 'categories' => $this->orderModel->getOrderCategories(), 'sites' => $this->constantModel->getAllSites()];
+        $rateModel = $this->model('Rate');
+        $data = [
+            'title' => 'ثبت سفارش جدید',
+            'customers' => $this->userModel->getAllCustomers(),
+            'categories' => $this->orderModel->getOrderCategories(),
+            'sites' => $this->constantModel->getAllSites(),
+            'shipping_rates' => $rateModel->getByType('shipping'),
+            'cargo_rates' => $rateModel->getByType('cargo'),
+            'store_rates' => $rateModel->getByType('store'),
+            'current_lira_rate' => $rateModel->getCurrentLiraRate()
+        ];
         $this->view('orders/create', $data);
     }
 
     public function store() {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') redirect('orders');
-        if (empty($_POST['user_id']) || empty($_POST['title']) || empty($_POST['price_toman'])) {
+        if (empty($_POST['user_id']) || empty($_POST['title'])) {
             $data = ['title' => 'ثبت سفارش جدید', 'customers' => $this->userModel->getAllCustomers(), 'categories' => $this->orderModel->getOrderCategories(), 'sites' => $this->constantModel->getAllSites(), 'error' => 'فیلدهای الزامی را پر کنید.'];
             $this->view('orders/create', $data); return;
         }
@@ -70,7 +80,23 @@ class OrderController extends Controller {
             $targetFile = $targetDir . $imageName;
             if (!move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile)) $imageName = null;
         }
-        // <<< FIX: Added product_link to the data array for creation
+        // Prepare costs using Rates
+        $rateModel = $this->model('Rate');
+        $currentLira = $rateModel->getCurrentLiraRate();
+        $priceLira = (float)($_POST['price_lira'] ?? 0);
+        $weight = (float)($_POST['weight'] ?? 0);
+        $shippingRateId = !empty($_POST['shipping_rate_id']) ? (int)$_POST['shipping_rate_id'] : null;
+        $cargoRateId = !empty($_POST['cargo_rate_id']) ? (int)$_POST['cargo_rate_id'] : null;
+        $storeRateId = !empty($_POST['store_rate_id']) ? (int)$_POST['store_rate_id'] : null;
+
+        $productToman = $priceLira > 0 ? ($priceLira * $currentLira) : (float)($_POST['price_toman'] ?? 0);
+        $shippingCost = 0; $cargoCost = 0; $storeCost = 0;
+        if ($shippingRateId) { $r = $rateModel->findById($shippingRateId); if ($r) { $shippingCost = $weight * (float)$r->amount_toman; } }
+        if ($cargoRateId) { $r = $rateModel->findById($cargoRateId); if ($r) { $cargoCost = $weight * (float)$r->amount_toman; } }
+        if ($storeRateId) { $r = $rateModel->findById($storeRateId); if ($r) { $storeCost = $weight * (float)$r->amount_toman; } }
+        $totalCost = $productToman + $shippingCost + $cargoCost + $storeCost;
+
+        // <<< FIX: Added product_link and rate selections to the data array for creation
         $data = [
             'user_id' => (int)$_POST['user_id'], 
             'title' => $_POST['title'], 
@@ -78,16 +104,24 @@ class OrderController extends Controller {
             'source_site' => $_POST['source_site'] ?? '', 
             'quantity' => (int)($_POST['quantity'] ?? 1), 
             'size' => $_POST['size'] ?? '', 
-            'price_lira' => (float)($_POST['price_lira'] ?? 0), 
-            'price_toman' => (float)$_POST['price_toman'], 
-            'weight' => (float)($_POST['weight'] ?? 0), 
+            'price_lira' => $priceLira, 
+            'price_toman' => $productToman, 
+            'weight' => $weight, 
             'apply_shipping' => isset($_POST['apply_shipping']) ? 1 : 0, 
             'with_cargo' => isset($_POST['with_cargo']) ? 1 : 0, 
             'is_store_purchase' => isset($_POST['is_store_purchase']) ? 1 : 0, 
             'category_id' => !empty($_POST['category_id']) ? (int)$_POST['category_id'] : null, 
             'description' => $_POST['description'] ?? '', 
             'product_link' => $_POST['product_link'] ?? '', // This line is new
-            'status_id' => 1
+            'status_id' => 1,
+            'shipping_rate_id' => $shippingRateId,
+            'cargo_rate_id' => $cargoRateId,
+            'store_rate_id' => $storeRateId,
+            'shipping_cost_toman' => $shippingCost,
+            'cargo_cost_toman' => $cargoCost,
+            'store_cost_toman' => $storeCost,
+            'total_cost' => $totalCost,
+            'product_cost_toman' => $productToman
         ];
         $orderId = $this->orderModel->createOrder($data);
         if ($orderId) {
@@ -116,7 +150,18 @@ class OrderController extends Controller {
         if (!$id) redirect('orders');
         $order = $this->orderModel->getOrderById($id);
         if (!$order) redirect('orders');
-        $data = ['title' => 'ویرایش سفارش #' . $id, 'order' => $order, 'customers' => $this->userModel->getAllCustomers(), 'categories' => $this->orderModel->getOrderCategories(), 'sites' => $this->constantModel->getAllSites()];
+        $rateModel = $this->model('Rate');
+        $data = [
+            'title' => 'ویرایش سفارش #' . $id,
+            'order' => $order,
+            'customers' => $this->userModel->getAllCustomers(),
+            'categories' => $this->orderModel->getOrderCategories(),
+            'sites' => $this->constantModel->getAllSites(),
+            'shipping_rates' => $rateModel->getByType('shipping'),
+            'cargo_rates' => $rateModel->getByType('cargo'),
+            'store_rates' => $rateModel->getByType('store'),
+            'current_lira_rate' => $rateModel->getCurrentLiraRate()
+        ];
         $this->view('orders/edit', $data);
     }
 
@@ -136,7 +181,23 @@ class OrderController extends Controller {
             if (!move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile)) $imageName = $order->image;
         }
 
-        // <<< FIX: Added product_link and corrected total_cost for update
+        // Prepare costs using Rates
+        $rateModel = $this->model('Rate');
+        $currentLira = $rateModel->getCurrentLiraRate();
+        $priceLira = (float)($_POST['price_lira'] ?? 0);
+        $weight = (float)($_POST['weight'] ?? 0);
+        $shippingRateId = !empty($_POST['shipping_rate_id']) ? (int)$_POST['shipping_rate_id'] : null;
+        $cargoRateId = !empty($_POST['cargo_rate_id']) ? (int)$_POST['cargo_rate_id'] : null;
+        $storeRateId = !empty($_POST['store_rate_id']) ? (int)$_POST['store_rate_id'] : null;
+
+        $productToman = $priceLira > 0 ? ($priceLira * $currentLira) : (float)($_POST['price_toman'] ?? 0);
+        $shippingCost = 0; $cargoCost = 0; $storeCost = 0;
+        if ($shippingRateId) { $r = $rateModel->findById($shippingRateId); if ($r) { $shippingCost = $weight * (float)$r->amount_toman; } }
+        if ($cargoRateId) { $r = $rateModel->findById($cargoRateId); if ($r) { $cargoCost = $weight * (float)$r->amount_toman; } }
+        if ($storeRateId) { $r = $rateModel->findById($storeRateId); if ($r) { $storeCost = $weight * (float)$r->amount_toman; } }
+        $totalCost = $productToman + $shippingCost + $cargoCost + $storeCost;
+
+        // <<< FIX: Added product_link and corrected total_cost for update and rate selections
         $data = [
             'user_id' => (int)$_POST['user_id'], 
             'title' => $_POST['title'], 
@@ -144,16 +205,23 @@ class OrderController extends Controller {
             'source_site' => $_POST['source_site'] ?? '', 
             'quantity' => (int)($_POST['quantity'] ?? 1), 
             'size' => $_POST['size'] ?? '', 
-            'price_lira' => (float)($_POST['price_lira'] ?? 0), 
-            'price_toman' => (float)$_POST['price_toman'], 
-            'weight' => (float)($_POST['weight'] ?? 0), 
+            'price_lira' => $priceLira, 
+            'price_toman' => $productToman, 
+            'weight' => $weight, 
             'apply_shipping' => isset($_POST['apply_shipping']) ? 1 : 0, 
             'with_cargo' => isset($_POST['with_cargo']) ? 1 : 0, 
             'is_store_purchase' => isset($_POST['is_store_purchase']) ? 1 : 0, 
             'category_id' => !empty($_POST['category_id']) ? (int)$_POST['category_id'] : null, 
             'description' => $_POST['description'] ?? '',
             'product_link' => $_POST['product_link'] ?? '', // This line is updated
-            'total_cost' => (float)$_POST['price_toman'] 
+            'shipping_rate_id' => $shippingRateId,
+            'cargo_rate_id' => $cargoRateId,
+            'store_rate_id' => $storeRateId,
+            'shipping_cost_toman' => $shippingCost,
+            'cargo_cost_toman' => $cargoCost,
+            'store_cost_toman' => $storeCost,
+            'total_cost' => $totalCost,
+            'product_cost_toman' => $productToman
         ];
         
         if ($this->orderModel->updateOrder($id, $data)) {

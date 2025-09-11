@@ -28,6 +28,7 @@
                     <!-- FIX: Added New Column for Links -->
                     <th class="py-3 px-6">لینک‌ها</th>
                     <th class="py-3 px-6">مبالغ</th>
+                    <th class="py-3 px-6">هزینه‌ها</th>
                     <th class="py-3 px-6">کدها</th>
                     <th class="py-3 px-6">وضعیت</th>
                     <th class="py-3 px-6">عملیات</th>
@@ -68,7 +69,13 @@
                             </td>
                             <td class="py-4 px-6 text-xs">
                                 <div><span class="font-medium text-gray-800"><?= number_format($order->price_lira ?? 0, 2); ?></span> لیر</div>
-                                <div><span class="font-medium text-green-600"><?= number_format($order->price_toman ?? 0); ?></span> تومان</div>
+                                <div><span class="font-medium text-green-600"><?= number_format($order->price_toman ?? 0); ?></span> تومان (محصول)</div>
+                            </td>
+                            <td class="py-4 px-6 text-xs">
+                                <div>باربری: <span class="font-medium"><?= number_format($order->shipping_cost_toman ?? 0); ?></span></div>
+                                <div>کارگو: <span class="font-medium"><?= number_format($order->cargo_cost_toman ?? 0); ?></span></div>
+                                <div>استور: <span class="font-medium"><?= number_format($order->store_cost_toman ?? 0); ?></span></div>
+                                <div class="border-t mt-1 pt-1">جمع کل: <span class="font-bold text-green-700"><?= number_format($order->total_cost ?? ($order->price_toman ?? 0)); ?></span></div>
                             </td>
                             <td class="py-4 px-6 text-xs">
                                 <div class="font-mono"><?= e($order->tracking_code); ?></div>

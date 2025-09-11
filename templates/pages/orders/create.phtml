@@ -49,11 +49,12 @@
             </div>
             <div>
                 <label for="price_lira" class="block text-sm font-medium text-gray-700 mb-1">قیمت (لیر)</label>
-                <input type="number" step="0.01" name="price_lira" id="price_lira" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+                <input type="number" step="0.01" name="price_lira" id="price_lira" class="w-full px-4 py-2 border border-gray-300 rounded-lg" oninput="convertToToman()">
+                <p class="text-xs text-gray-500 mt-1">نرخ فعلی لیر: <span id="liraRateText"><?= number_format($current_lira_rate ?? 0); ?></span> تومان</p>
             </div>
             <div>
-                <label for="price_toman" class="block text-sm font-medium text-gray-700 mb-1">قیمت (تومان) <span class="text-red-500">*</span></label>
-                <input type="number" step="1" name="price_toman" id="price_toman" required class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+                <label for="price_toman" class="block text-sm font-medium text-gray-700 mb-1">قیمت (تومان)</label>
+                <input type="number" step="1" name="price_toman" id="price_toman" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
             </div>
             <div>
                 <label for="quantity" class="block text-sm font-medium text-gray-700 mb-1">تعداد</label>
@@ -65,7 +66,45 @@
             </div>
             <div>
                 <label for="weight" class="block text-sm font-medium text-gray-700 mb-1">وزن (کیلوگرم)</label>
-                <input type="number" step="0.01" name="weight" id="weight" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+                <input type="number" step="0.01" name="weight" id="weight" class="w-full px-4 py-2 border border-gray-300 rounded-lg" oninput="recalcWeightedCosts()">
+            </div>
+
+            <!-- نرخ‌ها -->
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">نرخ باربری (تومان/کیلو)</label>
+                <select name="shipping_rate_id" id="shipping_rate_id" class="w-full px-4 py-2 border border-gray-300 rounded-lg" onchange="recalcWeightedCosts()">
+                    <option value="">انتخاب نرخ...</option>
+                    <?php foreach (($shipping_rates ?? []) as $r): ?>
+                        <option value="<?= e($r->id); ?>" data-amount="<?= e($r->amount_toman); ?>"><?= e($r->title); ?> - <?= number_format($r->amount_toman); ?> تومان/کیلو</option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">نرخ کارگو (تومان/کیلو)</label>
+                <select name="cargo_rate_id" id="cargo_rate_id" class="w-full px-4 py-2 border border-gray-300 rounded-lg" onchange="recalcWeightedCosts()">
+                    <option value="">انتخاب نرخ...</option>
+                    <?php foreach (($cargo_rates ?? []) as $r): ?>
+                        <option value="<?= e($r->id); ?>" data-amount="<?= e($r->amount_toman); ?>"><?= e($r->title); ?> - <?= number_format($r->amount_toman); ?> تومان/کیلو</option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">نرخ خرید استور (تومان/کیلو)</label>
+                <select name="store_rate_id" id="store_rate_id" class="w-full px-4 py-2 border border-gray-300 rounded-lg" onchange="recalcWeightedCosts()">
+                    <option value="">انتخاب نرخ...</option>
+                    <?php foreach (($store_rates ?? []) as $r): ?>
+                        <option value="<?= e($r->id); ?>" data-amount="<?= e($r->amount_toman); ?>"><?= e($r->title); ?> - <?= number_format($r->amount_toman); ?> تومان/کیلو</option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+
+            <!-- پیش‌نمایش هزینه‌ها -->
+            <div class="md:col-span-2 grid grid-cols-1 md:grid-cols-4 gap-4 bg-gray-50 p-4 rounded-lg">
+                <div>محصول: <span id="preview_product" class="font-semibold">0</span></div>
+                <div>باربری: <span id="preview_shipping" class="font-semibold">0</span></div>
+                <div>کارگو: <span id="preview_cargo" class="font-semibold">0</span></div>
+                <div>استور: <span id="preview_store" class="font-semibold">0</span></div>
+                <div class="md:col-span-4 border-t pt-2">جمع کل: <span id="preview_total" class="font-bold text-green-600">0</span> تومان</div>
             </div>
             <div class="md:col-span-2">
                 <label for="description" class="block text-sm font-medium text-gray-700 mb-1">توضیحات</label>
@@ -89,3 +128,35 @@
         </div>
     </form>
 </div>
+
+<script>
+    function toNumber(val) { var n = parseFloat(val); return isNaN(n) ? 0 : n; }
+    function convertToToman() {
+        var lira = toNumber(document.getElementById('price_lira').value);
+        var rate = toNumber((document.getElementById('liraRateText').innerText || '').replace(/\D/g, ''));
+        if (lira > 0 && rate > 0) {
+            document.getElementById('price_toman').value = Math.round(lira * rate);
+        }
+        recalcWeightedCosts();
+    }
+    function recalcWeightedCosts() {
+        var weight = toNumber(document.getElementById('weight').value);
+        function selectedAmount(id) {
+            var el = document.getElementById(id);
+            if (!el) return 0;
+            var opt = el.options[el.selectedIndex];
+            return opt ? toNumber(opt.getAttribute('data-amount')) : 0;
+        }
+        var product = toNumber(document.getElementById('price_toman').value);
+        var shipping = weight * selectedAmount('shipping_rate_id');
+        var cargo = weight * selectedAmount('cargo_rate_id');
+        var store = weight * selectedAmount('store_rate_id');
+        var total = product + shipping + cargo + store;
+        function nf(x){ return (Math.round(x)).toLocaleString('fa-IR'); }
+        document.getElementById('preview_product').innerText = nf(product);
+        document.getElementById('preview_shipping').innerText = nf(shipping);
+        document.getElementById('preview_cargo').innerText = nf(cargo);
+        document.getElementById('preview_store').innerText = nf(store);
+        document.getElementById('preview_total').innerText = nf(total);
+    }
+</script>

@@ -34,20 +34,16 @@ class ConstantController extends Controller {
 
     // --- Shipping Rates ---
     public function shippingRates() {
-        $data = ['title' => 'مدیریت نرخ باربری', 'rates' => $this->constantModel->getAllShippingRates()];
-        $this->view('constants/shipping_rates', $data);
+        // Moved to Rates module
+        redirect('rates');
     }
     public function storeShippingRate() {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['description']) && isset($_POST['cost'])) {
-            $this->constantModel->addShippingRate(['description' => $_POST['description'], 'cost' => (float)$_POST['cost']]);
-        }
-        redirect('constants/shipping-rates');
+        // Moved to Rates module
+        redirect('rates');
     }
     public function deleteShippingRate() {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['id'])) {
-            $this->constantModel->deleteShippingRate((int)$_POST['id']);
-        }
-        redirect('constants/shipping-rates');
+        // Moved to Rates module
+        redirect('rates');
     }
 
     // --- Source Sites (FIXED SECTION) ---

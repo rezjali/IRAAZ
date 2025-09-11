@@ -72,7 +72,6 @@ class SettingsController extends Controller {
             $postData = [
                 'site_name' => $_POST['site_name'] ?? '',
                 'site_url' => $_POST['site_url'] ?? '',
-                'lira_rate' => $_POST['lira_rate'] ?? '',
                 'theme_primary_color' => $_POST['theme_primary_color'] ?? '#0d6efd',
                 'theme_sidebar_bg' => $_POST['theme_sidebar_bg'] ?? '#212529',
                 'theme_sidebar_text' => $_POST['theme_sidebar_text'] ?? '#adb5bd',

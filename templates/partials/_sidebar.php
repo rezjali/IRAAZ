@@ -147,7 +147,7 @@ $inactiveChildClass = 'text-gray-400 hover:text-white';
                 <a href="<?php echo APP_URL; ?>/settings/sms" class="block py-2 px-3 rounded-md <?php echo isActiveLink('settings/sms', $currentPath) ? $activeChildClass : $inactiveChildClass; ?>">تنظیمات پیامک</a>
                 <a href="<?php echo APP_URL; ?>/constants/order-statuses" class="block py-2 px-3 rounded-md <?php echo isActiveLink('constants/order-statuses', $currentPath) ? $activeChildClass : $inactiveChildClass; ?>">وضعیت سفارش</a>
                 <a href="<?php echo APP_URL; ?>/constants/ticket-categories" class="block py-2 px-3 rounded-md <?php echo isActiveLink('constants/ticket-categories', $currentPath) ? $activeChildClass : $inactiveChildClass; ?>">دسته بندی تیکت</a>
-                <a href="<?php echo APP_URL; ?>/constants/shipping-rates" class="block py-2 px-3 rounded-md <?php echo isActiveLink('constants/shipping-rates', $currentPath) ? $activeChildClass : $inactiveChildClass; ?>">نرخ باربری</a>
+                <a href="<?php echo APP_URL; ?>/rates" class="block py-2 px-3 rounded-md <?php echo isActiveLink('rates', $currentPath) ? $activeChildClass : $inactiveChildClass; ?>">نرخ‌ها</a>
                 <a href="<?php echo APP_URL; ?>/constants/sites" class="block py-2 px-3 rounded-md <?php echo isActiveLink('constants/sites', $currentPath) ? $activeChildClass : $inactiveChildClass; ?>">مدیریت سایت ها</a>
             </div>
         </div>
