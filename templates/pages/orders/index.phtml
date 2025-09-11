@@ -1,0 +1,120 @@
+<div class="bg-white p-6 rounded-xl shadow-md">
+    <div class="flex justify-between items-center mb-4">
+        <h2 class="text-xl font-semibold"><?= e($title); ?></h2>
+        <a href="<?= APP_URL; ?>/orders/create" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">ثبت سفارش جدید</a>
+    </div>
+
+    <form method="GET" action="" class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+        <div class="md:col-span-2">
+            <input type="text" name="search" placeholder="جستجو در کد، مشتری، عنوان، کد رهگیری..." class="w-full px-4 py-2 border rounded-lg" value="<?= e($_GET['search'] ?? ''); ?>">
+        </div>
+        <div>
+            <select name="status_id" class="w-full px-4 py-2 border rounded-lg" onchange="this.form.submit()">
+                <option value="">همه وضعیت‌ها</option>
+                <?php foreach ($statuses as $status): ?>
+                    <option value="<?= e($status->id); ?>" <?= (isset($_GET['status_id']) && $_GET['status_id'] == $status->id) ? 'selected' : ''; ?>><?= e($status->status_name); ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+        <div><button type="submit" class="w-full bg-blue-600 text-white px-4 py-2 rounded-lg">فیلتر</button></div>
+    </form>
+
+    <div class="overflow-x-auto">
+        <table class="w-full text-sm text-right text-gray-500 whitespace-nowrap">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                <tr>
+                    <th class="py-3 px-6">سفارش</th>
+                    <th class="py-3 px-6">جزئیات</th>
+                    <!-- FIX: Added New Column for Links -->
+                    <th class="py-3 px-6">لینک‌ها</th>
+                    <th class="py-3 px-6">مبالغ</th>
+                    <th class="py-3 px-6">کدها</th>
+                    <th class="py-3 px-6">وضعیت</th>
+                    <th class="py-3 px-6">عملیات</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php if (empty($orders)): ?>
+                    <tr><td colspan="8" class="text-center py-6">هیچ سفارشی یافت نشد.</td></tr>
+                <?php else: ?>
+                    <?php foreach ($orders as $order): ?>
+                        <tr class="bg-white border-b hover:bg-gray-50">
+                            <td class="py-4 px-6">
+                                <div class="flex items-center space-x-3 space-x-reverse">
+                                    <?php if (!empty($order->image)): ?>
+                                        <img src="<?= APP_URL . '/uploads/orders/' . e($order->image); ?>" class="w-12 h-12 object-cover rounded-md">
+                                    <?php else: ?>
+                                        <div class="w-12 h-12 bg-gray-200 rounded-md flex-shrink-0"></div>
+                                    <?php endif; ?>
+                                    <div>
+                                        <div class="font-semibold text-gray-800">#<?= e($order->id); ?> - <?= e($order->title); ?></div>
+                                        <div class="text-xs text-gray-500"><?= e($order->customer_name); ?></div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="py-4 px-6 text-xs">
+                                <div>تعداد: <span class="font-medium text-gray-800"><?= e($order->quantity); ?></span></div>
+                                <div>سایز: <span class="font-medium text-gray-800"><?= e($order->size); ?></span></div>
+                                <div>وزن: <span class="font-medium text-gray-800"><?= e($order->weight); ?> kg</span></div>
+                            </td>
+                            <!-- FIX: Added TD for new Links column -->
+                            <td class="py-4 px-6 text-xs">
+                                <?php if (!empty($order->source_site)): ?>
+                                    <div><a href="<?= e($order->source_site); ?>" target="_blank" class="text-blue-600 hover:underline">سایت مبدا</a></div>
+                                <?php endif; ?>
+                                <?php if (!empty($order->product_link)): ?>
+                                    <div><a href="<?= e($order->product_link); ?>" target="_blank" class="text-blue-600 hover:underline">لینک محصول</a></div>
+                                <?php endif; ?>
+                            </td>
+                            <td class="py-4 px-6 text-xs">
+                                <div><span class="font-medium text-gray-800"><?= number_format($order->price_lira ?? 0, 2); ?></span> لیر</div>
+                                <div><span class="font-medium text-green-600"><?= number_format($order->price_toman ?? 0); ?></span> تومان</div>
+                            </td>
+                            <td class="py-4 px-6 text-xs">
+                                <div class="font-mono"><?= e($order->tracking_code); ?></div>
+                                <?php if(!empty($order->barcode_url)): ?>
+                                    <a href="javascript:void(0);" onclick="showBarcode('<?= e($order->barcode_url); ?>')" class="text-blue-600 hover:underline">مشاهده بارکد</a>
+                                <?php endif; ?>
+                            </td>
+                            <td class="py-4 px-6">
+                                <form action="<?= APP_URL; ?>/orders/updateStatus" method="POST" class="min-w-[150px]">
+                                    <input type="hidden" name="order_id" value="<?= e($order->id); ?>">
+                                    <select name="status_id" class="w-full text-xs p-1 border rounded-lg" onchange="this.form.submit()">
+                                        <?php foreach ($all_statuses as $status): ?>
+                                            <option value="<?= e($status->id); ?>" <?= ($order->status_id == $status->id) ? 'selected' : ''; ?>><?= e($status->status_name); ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </form>
+                            </td>
+                            <td class="py-4 px-6 flex space-x-2 space-x-reverse">
+                                <a href="<?= APP_URL; ?>/orders/show?id=<?= e($order->id); ?>" class="font-medium text-blue-600 hover:underline">مشاهده</a>
+                                <a href="<?= APP_URL; ?>/orders/edit?id=<?= e($order->id); ?>" class="font-medium text-yellow-500 hover:underline">ویرایش</a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </tbody>
+        </table>
+    </div>
+    <div class="mt-6"><?php require_once TEMPLATES_PATH . '/partials/_pagination.php'; ?></div>
+</div>
+
+<!-- Barcode Modal -->
+<div id="barcodeModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+    <div class="bg-white p-4 rounded-lg shadow-lg text-center">
+        <img id="barcodeImage" src="" alt="Barcode" class="mx-auto">
+        <button onclick="closeBarcodeModal()" class="mt-4 bg-red-500 text-white px-4 py-2 rounded-lg">بستن</button>
+    </div>
+</div>
+
+<script>
+    function showBarcode(url) {
+        document.getElementById('barcodeImage').src = url;
+        document.getElementById('barcodeModal').classList.remove('hidden');
+        document.getElementById('barcodeModal').classList.add('flex');
+    }
+    function closeBarcodeModal() {
+        document.getElementById('barcodeModal').classList.add('hidden');
+        document.getElementById('barcodeModal').classList.remove('flex');
+    }
+</script>

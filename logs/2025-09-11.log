@@ -1,0 +1,5 @@
+[2025-09-11 17:28:42] [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'o.cargo_price' in 'SELECT' in /home/admin/domains/nilayteam.ir/public_html/irnaaz2/app/core/Database.php on line 50
+[2025-09-11 17:32:02] [Exception] No route defined for this URI. in /home/admin/domains/nilayteam.ir/public_html/irnaaz2/app/core/Router.php on line 59
+[2025-09-11 17:32:05] [Exception] No route defined for this URI. in /home/admin/domains/nilayteam.ir/public_html/irnaaz2/app/core/Router.php on line 59
+[2025-09-11 17:37:33] [Exception] Method update does not exist in controller App\Controllers\SettingsController. in /home/admin/domains/nilayteam.ir/public_html/irnaaz2/app/core/Router.php on line 74
+[2025-09-11 17:49:37] [Exception] No route defined for this URI. in /home/admin/domains/nilayteam.ir/public_html/irnaaz2/app/core/Router.php on line 59
